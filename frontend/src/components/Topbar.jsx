@@ -6,9 +6,9 @@ const Topbar = () => {
             <div className="searchEngine">
                 <input type="text" />
             </div>
-            <button className="addButton">
-
-            </button>
+            <div className="addButton">
+                <button>+</button>
+            </div>
         </div>
     )
 }
