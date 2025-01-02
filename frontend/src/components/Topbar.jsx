@@ -6,7 +6,7 @@ const Topbar = () => {
             <div className="searchEngine">
                 <input type="text" />
             </div>
-            <button className="addButon">
+            <button className="addButton">
 
             </button>
         </div>
