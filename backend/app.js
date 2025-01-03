@@ -6,9 +6,14 @@ const dbs = require(join(__dirname, 'dbs.js'));
 dbs();
 
 const app = express();
+const cors = require('cors');
+app.use(cors({
+    origin: 'http://localhost:5173', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+}));
 
 const PORT = process.env.PORT || 8000;
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000';
+const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
 app.use(express.json());
 

@@ -1,13 +1,18 @@
-import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { closeAddModal } from '../stores/modal'
 
 const AddModal = () => {
-  const [addModal, setAddModal] = useState(false)
+  const { addModal } = useSelector(state => state.modal)
+  const dispatch = useDispatch()
   return (
     <div className={`${addModal ? 'modal active' : 'modal'}`}>
       <div className='wrapper'>
         <div className='topbar'>
           <h3 className='mark'>Todo App</h3>
-          <button className='closeButton' onClick={() => setAddModal(false)}>
+          <button
+            className='closeButton'
+            onClick={() => dispatch(closeAddModal())}
+          >
             x
           </button>
         </div>
@@ -20,7 +25,7 @@ const AddModal = () => {
             </div>
 
             <div className='buttons'>
-              <button type='button' onClick={() => setAddModal(false)}>
+              <button type='button' onClick={() => dispatch(closeAddModal())}>
                 Cancel
               </button>
               <button type='submit'>Add</button>
