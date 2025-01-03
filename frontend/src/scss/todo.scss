@@ -1,85 +1,138 @@
 .todo {
-    width: 100%;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 
-    .wrapper {
-        max-width: 1000px;
-        width: 80%;
-        height: 500px;
-        background-color: orange;
-    }
+  .wrapper {
+    max-width: 1000px;
+    width: 80%;
+    height: 500px;
+    background-color: rgb(231, 220, 201);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgb(76, 74, 70);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
 
     .topbar {
-        width: 100%;
-        height: 50px;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(76, 74, 70);
+      align-items: center;
+      padding: 0px 10px;
+      .mark,
+      .searchEngine,
+      .addButton {
+        flex: 1;
+        height: 100%;
         display: flex;
-        justify-content: space-between;
-        background-color: plum;
+        justify-content: center;
         align-items: center;
+      }
 
-        .mark,
-        .searchEngine,
-        .addButton {
-            flex: 1;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: darkblue;
-        }
-
-        .mark {
-            justify-content: flex-start;
-        }
-
-        .addButton {
-            justify-content: flex-end;
-        }
-    }
-
-    .list {
-        width: 100%;
-        height: calc(100% - 50px);
-        background-color: aquamarine;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-
-        .listItem {
+      .mark {
+        justify-content: flex-start;
+        color: white;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+          'Lucida Sans', Arial, sans-serif;
+        font-size: 1.3rem;
+      }
+      .searchEngine {
+        justify-content: center;
+        input {
+          width: 80%;
+          height: 25px;
+          border-radius: 5px;
+          border: none;
+          outline: none;
+          background: rgb(189, 183, 172);
+          padding: 0px 0px 0px 10px;
+          font-size: 1rem;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+            sans-serif;
+          transition: all 0.5s;
+          &:focus,
+          &:valid {
             width: 100%;
-            height: 30px;
-            background-color: orangered;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0px 5px;
-
-            input {
-                width: 90%;
-
-            }
-
-            .buttons {
-                width: 10%;
-                display: flex;
-                justify-content: flex-end;
-                gap: 10px;
-
-                button {
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 10px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border: none;
-                    outline: none;
-                }
-            }
+          }
         }
+      }
+      .addButton {
+        justify-content: flex-end;
+        button {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          font-size: 1.2rem;
+          transition: all 0.3s;
+          background-color: rgb(107, 205, 107);
+          &:hover {
+            transform: rotateZ(20deg);
+            background-color: rgb(77, 146, 77);
+          }
+        }
+      }
     }
+  }
+  .list {
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+
+    .listItem {
+      width: 100%;
+      height: 30px;
+      background-color: rgb(217, 206, 206);
+      padding: 0px 5px 0px 10px;
+      &:nth-child(2n) {
+        background-color: rgb(177, 174, 169);
+      }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 5px;
+      border-radius: 10px;
+      input {
+        width: 90%;
+        background: none;
+        outline: none;
+        border: none;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+          'Lucida Sans', Arial, sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .buttons {
+        width: 10%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+
+        button {
+          width: 25px;
+          height: 25px;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          outline: none;
+          font-size: 1rem;
+        }
+        .editButton {
+          background-color: rgb(238, 238, 108);
+        }
+        .deleteButton {
+          background-color: rgb(243, 115, 115);
+        }
+      }
+    }
+  }
 }

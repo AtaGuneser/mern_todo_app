@@ -1,11 +1,14 @@
+import { FiEdit } from 'react-icons/fi'
+import { AiOutlineDelete } from "react-icons/ai";
 
 const ListItem = () => {
     return (
         <div className="listItem">
-            <input type="text" />
+            <input type="text" placeholder="Your List Item.." />
             <div className="buttons">
-                <button className="editButton">+</button>
-                <button className="deleteButton">x</button>
+                <button className="editButton"><FiEdit/></button>
+                <button className="deleteButton"><AiOutlineDelete />
+                </button>
             </div>
 
         </div>)

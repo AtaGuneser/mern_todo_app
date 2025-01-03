@@ -1,2 +1,4 @@
-@import "./default.scss";
-@import "./todo.scss"
+// index.scss
+@use './default.scss';
+@use './todo.scss';
+@use './modal.scss';
