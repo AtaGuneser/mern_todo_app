@@ -1,17 +1,17 @@
-import ListItem from "./ListItem"
+import ListItem from './ListItem'
+import { useSelector } from 'react-redux'
 
 const List = () => {
-    return (
-        <div className="list">
-            <ListItem />
-            <ListItem />
+  const { data } = useSelector(state => state.allDataProcess)
+  console.log(data)
 
-            <ListItem />
-            <ListItem />
-            <ListItem />
-
-        </div>
-    )
+  return (
+    <div className='list'>
+      {data.map((item, index) => (
+        <ListItem key={index} item={item} />
+      ))}
+    </div>
+  )
 }
 
 export default List

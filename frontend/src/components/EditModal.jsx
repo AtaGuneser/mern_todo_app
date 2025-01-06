@@ -1,22 +1,22 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { closeAddModal } from '../stores/modal'
+import { closeEditModal } from '../stores/modal'
 import axios from 'axios'
 import { useState } from 'react'
 import { addData } from '../stores/data'
 
-const AddModal = () => {
-  const { addModal } = useSelector(state => state.modal)
+const EditModal = () => {
+  const { editModal } = useSelector(state => state.modal)
   const [textareaValue, setTextareaValue] = useState('')
 
   const dispatch = useDispatch()
   return (
-    <div className={`${addModal ? 'modal active' : 'modal'}`}>
+    <div className={`${editModal ? 'modal active' : 'modal'}`}>
       <div className='wrapper'>
         <div className='topbar'>
           <h3 className='mark'>Todo App</h3>
           <button
             className='closeButton'
-            onClick={() => dispatch(closeAddModal())}
+            onClick={() => dispatch(closeEditModal())}
           >
             x
           </button>
@@ -34,7 +34,7 @@ const AddModal = () => {
             if (response.type) {
               dispatch(addData(response.message))
               setTextareaValue('')
-              dispatch(closeAddModal())
+              dispatch(closeEditModal())
             }
           }}
         >
@@ -50,7 +50,7 @@ const AddModal = () => {
             </div>
 
             <div className='buttons'>
-              <button type='button' onClick={() => dispatch(closeAddModal())}>
+              <button type='button' onClick={() => dispatch(closeEditModal())}>
                 Cancel
               </button>
               <button type='submit'>Add</button>
@@ -62,4 +62,4 @@ const AddModal = () => {
   )
 }
 
-export default AddModal
+export default EditModal
