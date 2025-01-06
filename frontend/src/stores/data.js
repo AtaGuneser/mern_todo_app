@@ -24,9 +24,16 @@ const allDataProcess = createSlice({
         item._id === payload._id ? payload : item
       )
       state.data = newData
+    },
+    searchData: (state, { payload }) => {
+      let newData = responseData.filter(item =>
+        item.text.toLowerCase().startsWith(payload.toLowerCase())
+      )
+      state.data = newData
     }
   }
 })
 
-export const { addData, deleteData, editData } = allDataProcess.actions
+export const { addData, deleteData, editData, searchData } =
+  allDataProcess.actions
 export default allDataProcess.reducer
