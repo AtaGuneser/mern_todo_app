@@ -20,12 +20,10 @@ const allDataProcess = createSlice({
       state.data = state.data.filter(item => item._id !== payload.id)
     },
     editData: (state, { payload }) => {
-      state.data = state.data.map(item => {
-        if (item._id === payload.id) {
-          return { ...item, text: payload.text }
-        }
-        return item
-      })
+      let newData = state.data.map(item =>
+        item._id === payload._id ? payload : item
+      )
+      state.data = newData
     }
   }
 })

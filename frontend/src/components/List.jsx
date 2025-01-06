@@ -7,8 +7,8 @@ const List = () => {
 
   return (
     <div className='list'>
-      {data.map((item, index) => (
-        <ListItem key={index} item={item} />
+      {data.map(item => (
+        <ListItem key={`${item._id}-${item.text}`} item={item} />
       ))}
     </div>
   )

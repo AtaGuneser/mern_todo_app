@@ -1,4 +1,5 @@
 import AddModal from './AddModal'
+import EditModal from './EditModal'
 import List from './List'
 import Topbar from './Topbar'
 
@@ -12,6 +13,7 @@ const Todo = () => {
         </div>
       </div>
       <AddModal />
+      <EditModal />
     </>
   )
 }

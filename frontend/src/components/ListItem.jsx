@@ -2,8 +2,9 @@ import { FiEdit } from 'react-icons/fi'
 import { AiOutlineDelete } from 'react-icons/ai'
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import { deleteData, editData } from '../stores/data'
+import { deleteData } from '../stores/data'
 import { useDispatch } from 'react-redux'
+import { openEditModal } from '../stores/modal'
 
 const ListItem = ({ item }) => {
   const dispatch = useDispatch()
@@ -16,11 +17,7 @@ const ListItem = ({ item }) => {
         <button
           className='editButton'
           onClick={() => {
-            let newText = prompt('Enter new text', item.text)
-            if (newText) {
-              let formtData = { id: item._id, text: newText }
-              dispatch(editData(formtData))
-            }
+            dispatch(openEditModal(item))
           }}
         >
           <FiEdit />

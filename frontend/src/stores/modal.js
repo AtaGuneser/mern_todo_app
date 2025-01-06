@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  addModal: false
+  addModal: false,
+  editModal: false,
+  singleData: {}
 }
 
 const modal = createSlice({
@@ -14,11 +16,16 @@ const modal = createSlice({
     closeAddModal: state => {
       state.addModal = false
     },
+    openEditModal: (state, { payload }) => {
+      state.singleData = payload
+      state.editModal = true
+    },
     closeEditModal: state => {
       state.editModal = false
     }
   }
 })
 
-export const { openAddModal, closeAddModal, closeEditModal } = modal.actions
+export const { openAddModal, closeAddModal, closeEditModal, openEditModal } =
+  modal.actions
 export default modal.reducer

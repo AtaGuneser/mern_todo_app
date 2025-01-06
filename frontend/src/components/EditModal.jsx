@@ -1,14 +1,20 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { closeEditModal } from '../stores/modal'
 import axios from 'axios'
-import { useState } from 'react'
-import { addData } from '../stores/data'
+import { useState, useEffect } from 'react'
+import { editData } from '../stores/data'
 
 const EditModal = () => {
-  const { editModal } = useSelector(state => state.modal)
+  const { editModal, singleData } = useSelector(state => state.modal)
   const [textareaValue, setTextareaValue] = useState('')
-
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (singleData.text) {
+      setTextareaValue(singleData.text)
+    }
+  }, [singleData])
+
   return (
     <div className={`${editModal ? 'modal active' : 'modal'}`}>
       <div className='wrapper'>
@@ -25,14 +31,14 @@ const EditModal = () => {
         <form
           onSubmit={async e => {
             e.preventDefault()
-            const formData = { text: textareaValue }
+            const formData = { id: singleData._id, text: textareaValue }
             let response = await axios.post(
-              'http://localhost:4000/add',
+              'http://localhost:4000/edit',
               formData
             )
             response = response.data
             if (response.type) {
-              dispatch(addData(response.message))
+              dispatch(editData(response.message))
               setTextareaValue('')
               dispatch(closeEditModal())
             }
@@ -46,14 +52,14 @@ const EditModal = () => {
                 value={textareaValue}
                 onChange={e => setTextareaValue(e.target.value)}
               ></textarea>
-              <span>Add New List</span>
+              <span>Edit List Item</span>
             </div>
 
             <div className='buttons'>
               <button type='button' onClick={() => dispatch(closeEditModal())}>
                 Cancel
               </button>
-              <button type='submit'>Add</button>
+              <button type='submit'>Edit</button>
             </div>
           </div>
         </form>
