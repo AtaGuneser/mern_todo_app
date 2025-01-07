@@ -9,3 +9,5 @@ This project is a **To-Do App** built using the **MERN stack**:
 Additional tools and libraries:  
 - **Redux**: For state management in the React application.  
 - **Axios**: For seamless communication between frontend and backend.  
+
+![image](https://github.com/user-attachments/assets/859ad0d8-c35d-4df9-a803-660c4f386e4a)
